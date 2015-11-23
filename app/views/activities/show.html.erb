@@ -1,0 +1,82 @@
+<h1><%= @activity.name %></h1>
+<table>
+  <tr>
+    <td>
+      <strong>Neighborhood: </strong>
+    </td>
+    <td>
+      <%= @activity.neighborhood.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Category: </strong>
+    </td>
+    <td>
+      <%= @activity.category %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Subcategory: </strong>
+    </td>
+    <td>
+      <%= @activity.subcategory %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Description: </strong>
+    </td>
+    <td>
+      <%= @activity.description %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Website: </strong>
+    </td>
+    <td>
+      <%= link_to 'Click Here', @activity.website %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>When: </strong>
+    </td>
+    <td>
+      <% @when.each do |time| %>
+        <%= time %>
+        <br>
+      <% end %>
+    </td>
+    <tr>
+      <td>
+        <strong>Price Range: </strong>
+      </td>
+      <td>
+        <%= @price_range %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Transit Time: </strong>
+        <br>
+         (from Ada)
+      </td>
+      <td>
+        <%= @activity.minutes_from_ada %> minutes via <%= @activity.method %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Address: </strong>
+      </td>
+      <td>
+        <%= @activity.address %>
+        <br>
+        <%= @activity.city %>, <%= @activity.state %> <%= @activity.zip %>
+      </td>
+    </tr>
+  </tr>
+</table>
