@@ -27,6 +27,11 @@ class NeighborhoodsController < ApplicationController
     redirect_to neighborhoods_path
   end
 
+  def destroy
+    Neighborhood.destroy(params[:id])
+    redirect_to neighborhoods_path
+  end
+
   private
 
   def neighborhood_params
