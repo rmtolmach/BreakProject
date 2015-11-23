@@ -1,5 +1,7 @@
 <h1>Neighborhoods Index Page</h1>
 <%= link_to 'Add a new neighborhood', new_neighborhood_path %>
+<br>
+<br>
 <table>
 <% @neighborhoods.each do |n| %>
   <tr>
@@ -7,7 +9,7 @@
       <%= link_to n.name, neighborhood_path(n) %>
     </td>
     <td>
-      <%= button_to 'Edit', neighborhood_path(n), method: :get %>
+      <%= button_to 'Edit', edit_neighborhood_path(n), method: :get %>
     </td>
     <td>
       <%= button_to "Delete", "/neighborhoods/#{n.id}", method: "delete",  data: { confirm: "Are you sure you want to delete this neighborhood?" } %>

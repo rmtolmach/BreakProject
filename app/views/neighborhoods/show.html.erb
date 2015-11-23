@@ -1,0 +1,23 @@
+<h1>Neighborhood Show Page!</h1>
+<h3>Description:</h3>
+<%= @neighborhood.description %>
+<br>
+<br>
+<%= link_to "Add an activity", new_neighborhood_activity_path(@neighborhood) %>
+<h3>Activities:</h3>
+<table>
+  <% @activities.each do |a| %>
+    <tr>
+      <td>
+        <%= link_to a.name, neighborhood_activity_path(@neighborhood, a) %>
+      </td>
+      <td>
+        <%= button_to 'Edit', edit_neighborhood_activity_path(@neighborhood, a), method: :get %>
+      </td>
+      <td>
+        <%= button_to 'Delete',
+        "/neighborhoods/#{@neighborhood.id}/activities/#{a.id}", method: "delete", data: { confirm: "Are you sure you want to delete this activity?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
