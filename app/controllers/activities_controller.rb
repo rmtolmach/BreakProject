@@ -38,4 +38,35 @@ class ActivitiesController < ApplicationController
       @price_range = "Over $20"
     end
   end
+
+  def edit
+    @activity = Activity.find(params[:id])
+  end
+
+  def update
+    activity = Activity.find(params[:id])
+    activity.update(activity_params)
+    redirect_to neighborhood_path
+  end
+
+  def new
+    @activity = Activity.new
+  end
+
+  def create
+    #need to add in neighborhood_id
+    @activity = Activity.create(activity_params)
+    redirect_to neighborhood_path
+  end
+
+  def destroy
+    Activity.destroy(params[:id])
+    redirect_to neighborhood_path
+  end
+
+  private
+
+  def activity_params
+    params.require(:activity).permit([:name, :category, :subcategory, :description, :sunday_morning, :sunday_afternoon, :sunday_evening, :monday_morning, :monday_afternoon, :monday_evening, :tuesday_morning, :tuesday_afternoon, :tuesday_evening, :wednesday_morning, :wednesday_afternoon, :wednesday_evening, :thursday_morning, :thursday_afternoon, :thursday_evening, :friday_morning, :friday_afternoon, :friday_evening, :saturday_morning, :saturday_afternoon, :saturday_evening, :website, :price_range, :minutes_from_ada, :method, :address, :city, :state, :country, :zip])
+  end
 end
