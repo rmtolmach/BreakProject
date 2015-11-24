@@ -45,7 +45,7 @@
       <strong>When: </strong>
     </td>
     <td>
-      <% @when.each do |time| %>
+      <% times_when(@activity).each do |time| %>
         <%= time %>
         <br>
       <% end %>
@@ -55,7 +55,7 @@
         <strong>Price Range: </strong>
       </td>
       <td>
-        <%= @price_range %>
+        <%= @activity.price_range %>
       </td>
     </tr>
     <tr>
