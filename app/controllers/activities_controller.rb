@@ -1,4 +1,20 @@
 class ActivitiesController < ApplicationController
+  def index
+    @categories = Activity.pluck(:category).uniq
+    @subcategories = Activity.pluck(:subcategory).uniq
+    @neighborhoods = []
+    Neighborhood.all.each do |n|
+      @neighborhoods.push(n.name)
+    end
+    category = params["Category"]
+    subcategory = params["Subcategory"]
+    neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
+    @activities = Activity.all
+    @activities = Activity.where(category: category) unless category == nil || category == ''
+    @activities = Activity.where(subcategory: subcategory) unless subcategory == nil || subcategory == ''
+    @activities = Activity.where(neighborhood_id: neighborhood_id) unless neighborhood_id == nil || neighborhood_id == ''
+  end
+
   def show
     @activity = Activity.find(params[:id])
   end
@@ -36,8 +52,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    Activity.destroy(params[:id])
-    redirect_to neighborhood_path
+    activity = Activity.destroy(params[:id])
+    redirect_to activity.neighborhood
   end
 
   private
