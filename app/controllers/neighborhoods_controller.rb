@@ -1,20 +1,23 @@
 class NeighborhoodsController < ApplicationController
+  before_action :get_neighborhood, only: [:show, :edit, :update, :destroy]
+
+  def get_neighborhood
+    @neighborhood = Neighborhood.find(params[:id])
+  end
+
   def index
     @neighborhoods = Neighborhood.all
   end
 
   def show
-    @neighborhood = Neighborhood.find(params[:id])
     @activities = @neighborhood.activities
   end
 
   def edit
-    @neighborhood = Neighborhood.find(params[:id])
   end
 
   def update
-    neighborhood = Neighborhood.find(params[:id])
-    neighborhood.update(neighborhood_params)
+    @neighborhood.update(neighborhood_params)
     redirect_to neighborhoods_path
   end
 
@@ -28,7 +31,7 @@ class NeighborhoodsController < ApplicationController
   end
 
   def destroy
-    Neighborhood.destroy(params[:id])
+    @neighborhood.destroy
     redirect_to neighborhoods_path
   end
 
