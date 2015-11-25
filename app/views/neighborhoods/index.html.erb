@@ -1,9 +1,4 @@
-<h1>Neighborhoods Index Page</h1>
-<%= link_to 'Add a new neighborhood', new_neighborhood_path %>
-<br>
-<%= link_to 'View All Activities', activities_path %>
-<br>
-<br>
+<h1>Welcome to Seattle!</h1>
 <table>
 <% @neighborhoods.each do |n| %>
   <tr>
@@ -19,3 +14,7 @@
   </tr>
 <% end %>
 </table>
+<p>
+  Can't find the neighborhood you're looking for? <%= link_to 'Add a new neighborhood', new_neighborhood_path %>
+  <br>
+</p>

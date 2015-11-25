@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<nav>
+  <%= link_to "Neighborhoods", neighborhoods_path %>
+  <%= link_to "All Activities", activities_path %>
+</nav>
 <%= yield %>
 
 </body>

@@ -5,7 +5,7 @@
       <strong>Neighborhood: </strong>
     </td>
     <td>
-      <%= @activity.neighborhood.name %>
+      <%= link_to @activity.neighborhood.name, neighborhood_path(@activity.neighborhood_id) %>
     </td>
   </tr>
   <tr>
@@ -37,7 +37,9 @@
       <strong>Website: </strong>
     </td>
     <td>
-      <%= link_to 'Click Here', @activity.website %>
+      <% if @activity.website != '' %>
+        <%= link_to 'Click Here', @activity.website, :target => '_blank' %>
+      <% end %>
     </td>
   </tr>
   <tr>
