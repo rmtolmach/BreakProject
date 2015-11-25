@@ -6,6 +6,8 @@ class ActivitiesController < ApplicationController
     subcategory = params["Subcategory"]
     neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
     price_range = params["Price"]
+    time = params["Time"]
+
     if category != nil && category != ''
       @activities = Activity.where(category: category)
       @filtered_by = "Category: " + category
@@ -18,6 +20,29 @@ class ActivitiesController < ApplicationController
     elsif price_range != nil && price_range != ''
       @activities = Activity.where(price_range: price_range)
       @filtered_by = "Price Range: " + price_range
+    elsif time != nil && time != ''
+      @filtered_by = "Time: " + time.gsub("_", " ").titleize + "s"
+      @activities = Activity.where(sunday_morning: true) if time == "sunday_morning"
+      @activities = Activity.where(sunday_afternoon: true) if time == "sunday_afternoon"
+      @activities = Activity.where(sunday_evening: true) if time == "sunday_evening"
+      @activities = Activity.where(monday_morning: true) if time == "monday_morning"
+      @activities = Activity.where(monday_afternoon: true) if time == "monday_afternoon"
+      @activities = Activity.where(monday_evening: true) if time == "monday_evening"
+      @activities = Activity.where(tuesday_morning: true) if time == "tuesday_morning"
+      @activities = Activity.where(tuesday_afternoon: true) if time == "tuesday_afternoon"
+      @activities = Activity.where(tuesday_evening: true) if time == "tuesday_evening"
+      @activities = Activity.where(wednesday_morning: true) if time == "wednesday_morning"
+      @activities = Activity.where(wednesday_afternoon: true) if time == "wednesday_afternoon"
+      @activities = Activity.where(wednesday_evening: true) if time == "wednesday_evening"
+      @activities = Activity.where(thursday_morning: true) if time == "thursday_morning"
+      @activities = Activity.where(thursday_afternoon: true) if time == "thursday_afternoon"
+      @activities = Activity.where(thursday_evening: true) if time == "thursday_evening"
+      @activities = Activity.where(friday_morning: true) if time == "friday_morning"
+      @activities = Activity.where(friday_afternoon: true) if time == "friday_afternoon"
+      @activities = Activity.where(friday_evening: true) if time == "friday_evening"
+      @activities = Activity.where(saturday_morning: true) if time == "saturday_morning"
+      @activities = Activity.where(saturday_afternoon: true) if time == "saturday_afternoon"
+      @activities = Activity.where(saturday_evening: true) if time == "saturday_evening"
     else
       @activities = Activity.all
     end
