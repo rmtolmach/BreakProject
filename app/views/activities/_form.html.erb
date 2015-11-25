@@ -79,7 +79,7 @@
     <%= f.text_field :website %>
     <br>
     <%= f.label :price_range, 'Price Range: ' %>
-    <%= f.select :price_range, @price_range, prompt: "Select a price range" %>
+    <%= f.select :price_range, ["Free", "$1 - $5", "$5 - $10", "$10 - $15", "$15 - $20", "$20+"], prompt: "Select a price range" %>
     <br>
     <%= f.label :minutes_from_ada, 'Transit Time (from Ada): ' %>
     <%= f.number_field :minutes_from_ada %>

@@ -2,7 +2,6 @@ class ActivitiesController < ApplicationController
   def index
     @categories = Activity.pluck(:category).uniq
     @subcategories = Activity.pluck(:subcategory).uniq
-    @prices = Activity.pluck(:price_range).uniq
     category = params["Category"]
     subcategory = params["Subcategory"]
     neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
@@ -32,7 +31,6 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @categories = Activity.pluck(:category).uniq
     @subcategories = Activity.pluck(:subcategory).uniq
-    @price_range = Activity.pluck(:price_range).uniq
     @method = Activity.pluck(:method).uniq
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
   end
@@ -47,7 +45,6 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new
     @categories = Activity.pluck(:category).uniq
     @subcategories = Activity.pluck(:subcategory).uniq
-    @price_range = Activity.pluck(:price_range).uniq
     @method = Activity.pluck(:method).uniq
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
   end
