@@ -3,22 +3,15 @@ class ActivitiesController < ApplicationController
     @categories = Activity.pluck(:category).uniq
     @subcategories = Activity.pluck(:subcategory).uniq
     @neighborhoods = []
-    Neighborhood.all.each do |n|
-      @neighborhoods.push(n.name)
-    end
     category = params["Category"]
     subcategory = params["Subcategory"]
     neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
-    params[:monday_morning] == "1" ? monday_morning = true : monday_morning = false
-
     if category != nil && category != ''
       @activities = Activity.where(category: category)
     elsif subcategory != nil && subcategory != ''
       @activities = Activity.where(subcategory: subcategory)
     elsif neighborhood_id != nil && neighborhood_id != ''
       @activities = Activity.where(neighborhood_id: neighborhood_id)
-    elsif params[:commit] != nil
-      @activities = Activity.where(monday_morning: monday_morning)
     else
       @activities = Activity.all
     end
