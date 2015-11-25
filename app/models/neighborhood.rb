@@ -1,3 +1,3 @@
 class Neighborhood < ActiveRecord::Base
-  has_many :activities 
+  has_many :activities
 end

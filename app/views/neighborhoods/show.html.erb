@@ -2,9 +2,11 @@
 <h3>Description:</h3>
 <%= @neighborhood.description %>
 <br>
-<br>
-<%= link_to "Add an activity", new_neighborhood_activity_path(@neighborhood) %>
+
 <h3>Activities:</h3>
+<p>
+  Contribute to the list! <%= link_to "Add an activity", new_neighborhood_activity_path(@neighborhood) %>
+</p>
 <table>
   <% @activities.each do |a| %>
     <tr>

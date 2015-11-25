@@ -1,8 +1,11 @@
+<%= link_to "Click Here", neighborhood_path(@neighborhood.id) %> to return to <%= @neighborhood.name %>.
+<br>
+<br>
 <%= form_for [@neighborhood, @activity] do |f| %>
   <fieldset>
     <legend>Activity Details</legend>
     <%= f.label :name, 'Name: ' %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => true %>
     <br>
     <br>
     <%= f.label :category, 'Category: ' %>

@@ -80,7 +80,6 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    #need to add in neighborhood_id
     activity = Activity.create(activity_params) do |a|
       a.neighborhood = Neighborhood.find(params[:neighborhood_id])
     end
