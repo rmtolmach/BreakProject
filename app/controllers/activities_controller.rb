@@ -7,7 +7,14 @@ class ActivitiesController < ApplicationController
     neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
     price_range = params["Price"]
     time = params["Time"]
+    if params.length == 5
+      filter_activities(category, subcategory, neighborhood_id, price_range, time)
+    else
+      @activities = Activity.all
+    end
+  end
 
+  def filter_activities(category, subcategory, neighborhood_id, price_range, time)
     if category != nil && category != ''
       @activities = Activity.where(category: category)
       @filtered_by = "Category: " + category
@@ -43,8 +50,6 @@ class ActivitiesController < ApplicationController
       @activities = Activity.where(saturday_morning: true) if time == "saturday_morning"
       @activities = Activity.where(saturday_afternoon: true) if time == "saturday_afternoon"
       @activities = Activity.where(saturday_evening: true) if time == "saturday_evening"
-    else
-      @activities = Activity.all
     end
   end
 
