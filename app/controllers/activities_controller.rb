@@ -9,10 +9,19 @@ class ActivitiesController < ApplicationController
     category = params["Category"]
     subcategory = params["Subcategory"]
     neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
-    @activities = Activity.all
-    @activities = Activity.where(category: category) unless category == nil || category == ''
-    @activities = Activity.where(subcategory: subcategory) unless subcategory == nil || subcategory == ''
-    @activities = Activity.where(neighborhood_id: neighborhood_id) unless neighborhood_id == nil || neighborhood_id == ''
+    params[:monday_morning] == "1" ? monday_morning = true : monday_morning = false
+
+    if category != nil && category != ''
+      @activities = Activity.where(category: category)
+    elsif subcategory != nil && subcategory != ''
+      @activities = Activity.where(subcategory: subcategory)
+    elsif neighborhood_id != nil && neighborhood_id != ''
+      @activities = Activity.where(neighborhood_id: neighborhood_id)
+    elsif params[:commit] != nil
+      @activities = Activity.where(monday_morning: monday_morning)
+    else
+      @activities = Activity.all
+    end
   end
 
   def show
