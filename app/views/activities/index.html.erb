@@ -1,139 +1,145 @@
-<h1>All Activities</h1>
-<%= form_tag '', :method => :get do %>
-  <%= select_tag "Category", options_for_select(@categories), prompt: "Select a category" %>
-  <%= submit_tag 'Filter by Category' %>
-<% end %>
-<%= form_tag '', :method => :get do %>
-  <%= select_tag "Subcategory", options_for_select(@subcategories), prompt: "Select a subcategory" %>
-  <%= submit_tag 'Filter by Subcategory' %>
-<% end %>
-<%= form_tag '', :method => :get do %>
-  <%= collection_select :neighborhood, :neighborhood_id, Neighborhood.all, :id, :name, prompt: "Select a neighborhood" %>
-  <%= submit_tag 'Filter by Neighborhood' %>
-<% end %>
-<%= form_tag '', :method => :get do %>
-  <%= select_tag "Price", options_for_select(["Free", "$1 - $5", "$5 - $10", "$10 - $15", "$15 - $20", "$20+"]), prompt: "Select a price range" %>
-  <%= submit_tag 'Filter by Price Range' %>
-<% end %>
-<%= form_tag '', :method => :get do %>
-  <table>
-    <tr>
-      <td>
-        <strong>Monday:</strong>
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :monday_morning %>Mornings
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :monday_afternoon %>Afternoons
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :monday_evening %>Evenings
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Tuesday:</strong>
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :tuesday_morning %>Mornings
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :tuesday_afternoon %>Afternoons
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :tuesday_evening %>Evenings
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Wednesday:</strong>
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :wednesday_morning %>Mornings
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :wednesday_afternoon %>Afternoons
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :wednesday_evening %>Evenings
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Thursday:</strong>
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :thursday_morning %>Mornings
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :thursday_afternoon %>Afternoons
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :thursday_evening %>Evenings
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Friday:</strong>
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :friday_morning %>Mornings
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :friday_afternoon %>Afternoons
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :friday_evening %>Evenings
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Saturday:</strong>
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :saturday_morning %>Mornings
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :saturday_afternoon %>Afternoons
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :saturday_evening %>Evenings
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Sunday:</strong>
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :sunday_morning %>Mornings
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :sunday_afternoon %>Afternoons
-      </td>
-      <td>
-        <%= radio_button_tag "Time", :sunday_evening %>Evenings
-      </td>
-    </tr>
-  </table>
-  <%= submit_tag 'Filter by Time' %>
-<% end %>
-<% if @filtered_by != nil %>
-  <h4>Filtered by <%= @filtered_by %> <%= link_to 'Reset Filter', activities_path %></h4>
-<% end %>
-<table>
-  <% @activities.each do |a| %>
-    <tr>
-      <td>
-        <%= link_to a.name, neighborhood_activity_path(a.neighborhood_id, a.id) %>
-      </td>
-      <td>
-        <%= button_to 'Edit', edit_neighborhood_activity_path(a.neighborhood_id, a.id), method: :get %>
-      </td>
-      <td>
-        <%= button_to 'Delete',
-        "/neighborhoods/#{a.neighborhood_id}/activities/#{a.id}", method: "delete", data: { confirm: "Are you sure you want to delete this activity?" } %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<h1>Activities</h1>
+<section>
+  <h3>Filters</h3>
+  <%= form_tag '', :method => :get do %>
+    <%= select_tag "Category", options_for_select(@categories), prompt: "Select a category" %>
+    <%= submit_tag 'Filter by Category' %>
+    <% end %>
+    <%= form_tag '', :method => :get do %>
+    <%= select_tag "Subcategory", options_for_select(@subcategories), prompt: "Select a subcategory" %>
+    <%= submit_tag 'Filter by Subcategory' %>
+    <% end %>
+    <%= form_tag '', :method => :get do %>
+    <%= collection_select :neighborhood, :neighborhood_id, Neighborhood.all, :id, :name, prompt: "Select a neighborhood" %>
+    <%= submit_tag 'Filter by Neighborhood' %>
+    <% end %>
+    <%= form_tag '', :method => :get do %>
+    <%= select_tag "Price", options_for_select(["Free", "$1 - $5", "$5 - $10", "$10 - $15", "$15 - $20", "$20+"]), prompt: "Select a price range" %>
+    <%= submit_tag 'Filter by Price Range' %>
+    <% end %>
+    <%= form_tag '', :method => :get do %>
+    <table>
+      <tr>
+        <td>
+          <strong>Monday:</strong>
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :monday_morning %>Mornings
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :monday_afternoon %>Afternoons
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :monday_evening %>Evenings
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Tuesday:</strong>
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :tuesday_morning %>Mornings
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :tuesday_afternoon %>Afternoons
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :tuesday_evening %>Evenings
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Wednesday:</strong>
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :wednesday_morning %>Mornings
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :wednesday_afternoon %>Afternoons
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :wednesday_evening %>Evenings
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Thursday:</strong>
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :thursday_morning %>Mornings
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :thursday_afternoon %>Afternoons
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :thursday_evening %>Evenings
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Friday:</strong>
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :friday_morning %>Mornings
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :friday_afternoon %>Afternoons
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :friday_evening %>Evenings
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Saturday:</strong>
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :saturday_morning %>Mornings
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :saturday_afternoon %>Afternoons
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :saturday_evening %>Evenings
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Sunday:</strong>
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :sunday_morning %>Mornings
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :sunday_afternoon %>Afternoons
+        </td>
+        <td>
+          <%= radio_button_tag "Time", :sunday_evening %>Evenings
+        </td>
+      </tr>
+    </table>
+    <%= submit_tag 'Filter by Time' %>
+    <% end %>
+    <% if @filtered_by != nil %>
+    <h4>Filtered by <%= @filtered_by %> <%= link_to 'Reset Filter', activities_path %></h4>
+    <% end %>
+    <table>
+</section>
+<section>
+  <h3>List of Activities</h3>
+    <% @activities.each do |a| %>
+      <tr>
+        <td>
+          <%= link_to a.name, neighborhood_activity_path(a.neighborhood_id, a.id) %>
+        </td>
+        <td>
+          <%= button_to 'Edit', edit_neighborhood_activity_path(a.neighborhood_id, a.id), method: :get %>
+        </td>
+        <td>
+          <%= button_to 'Delete',
+          "/neighborhoods/#{a.neighborhood_id}/activities/#{a.id}", method: "delete", data: { confirm: "Are you sure you want to delete this activity?" } %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+</section>
