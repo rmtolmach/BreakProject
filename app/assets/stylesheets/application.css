@@ -21,4 +21,24 @@
      -moz-background-size: cover;    /* Mozilla*/
      -o-background-size: cover;      /* Opera*/
      background-size: cover;         /* Generic*/
+     color: rgb(81,82,75);
  }
+
+
+div {
+  background-color: #fff;
+  background-color: rgba(253,253,253,0.8);
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  width: 60%;
+  padding: 3%;
+}
+
+p {
+  padding: 3%;
+}
