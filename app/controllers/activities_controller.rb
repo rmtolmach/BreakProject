@@ -2,16 +2,23 @@ class ActivitiesController < ApplicationController
   def index
     @categories = Activity.pluck(:category).uniq
     @subcategories = Activity.pluck(:subcategory).uniq
-    @neighborhoods = []
+    @prices = Activity.pluck(:price_range).uniq
     category = params["Category"]
     subcategory = params["Subcategory"]
     neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
+    price_range = params["Price"]
     if category != nil && category != ''
       @activities = Activity.where(category: category)
+      @filtered_by = "Category: " + category
     elsif subcategory != nil && subcategory != ''
       @activities = Activity.where(subcategory: subcategory)
+      @filtered_by = "Subcategory: " + subcategory
     elsif neighborhood_id != nil && neighborhood_id != ''
       @activities = Activity.where(neighborhood_id: neighborhood_id)
+      @filtered_by = "Neighborhood: " + Neighborhood.find(neighborhood_id).name
+    elsif price_range != nil && price_range != ''
+      @activities = Activity.where(price_range: price_range)
+      @filtered_by = "Price Range: " + price_range
     else
       @activities = Activity.all
     end

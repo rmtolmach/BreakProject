@@ -11,6 +11,13 @@
   <%= collection_select :neighborhood, :neighborhood_id, Neighborhood.all, :id, :name, prompt: "Select a neighborhood" %>
   <%= submit_tag 'Filter by Neighborhood' %>
 <% end %>
+<%= form_tag '', :method => :get do %>
+  <%= select_tag "Price", options_for_select(@prices), prompt: "Select a price range" %>
+  <%= submit_tag 'Filter by Price Range' %>
+<% end %>
+<% if @filtered_by != nil %>
+  <h4>Filtered by <%= @filtered_by %> <%= link_to 'Reset Filter', activities_path %></h4>
+<% end %>
 <table>
   <% @activities.each do |a| %>
     <tr>
