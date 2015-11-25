@@ -1,7 +1,26 @@
 class ActivitiesController < ApplicationController
-  def index
+  before_action :get_categories, only: [:index, :edit, :new]
+  before_action :get_subcategories, only: [:index, :edit, :new]
+  before_action :get_activity, only: [:show, :edit, :update, :destroy]
+  before_action :get_methods, only: [:edit, :new]
+
+  def get_categories
     @categories = Activity.pluck(:category).uniq
+  end
+
+  def get_subcategories
     @subcategories = Activity.pluck(:subcategory).uniq
+  end
+
+  def get_activity
+    @activity = Activity.find(params[:id])
+  end
+
+  def get_methods
+    @method = Activity.pluck(:method).uniq
+  end
+
+  def index
     category = params["Category"]
     subcategory = params["Subcategory"]
     neighborhood_id = params[:neighborhood][:neighborhood_id] unless params[:neighborhood] == nil
@@ -54,28 +73,19 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @activity = Activity.find(params[:id])
   end
 
   def edit
-    @activity = Activity.find(params[:id])
-    @categories = Activity.pluck(:category).uniq
-    @subcategories = Activity.pluck(:subcategory).uniq
-    @method = Activity.pluck(:method).uniq
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
   end
 
   def update
-    activity = Activity.find(params[:id])
-    activity.update(activity_params)
-    redirect_to activity.neighborhood
+    @activity.update(activity_params)
+    redirect_to @activity.neighborhood
   end
 
   def new
     @activity = Activity.new
-    @categories = Activity.pluck(:category).uniq
-    @subcategories = Activity.pluck(:subcategory).uniq
-    @method = Activity.pluck(:method).uniq
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
   end
 
@@ -87,8 +97,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    activity = Activity.destroy(params[:id])
-    redirect_to activity.neighborhood
+    @activity.destroy
+    redirect_to @activity.neighborhood
   end
 
   private
