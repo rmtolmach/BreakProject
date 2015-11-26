@@ -1,4 +1,7 @@
-<div>
+<div class="activity_form">
+  <p><%= link_to "Click Here", neighborhood_path(@neighborhood.id) %> to return to <%= @neighborhood.name %>.</p>
+</div>
+<div class="activity_form">
   <h1>Edit Activity</h1>
 </div>
 <%= render 'form' %>
