@@ -3,51 +3,30 @@
 </div>
 <div class="activity_index">
   <h3>Filters</h3>
-  <table class="filter_table">
+  <section class="filter">
     <%= form_tag '', :method => :get do %>
-    <tr>
-      <td>
-        <%= collection_select :neighborhood, :neighborhood_id, Neighborhood.all, :id, :name, prompt: "Select a neighborhood" %>
-      </td>
-      <td>
-        <%= submit_tag 'Filter by Neighborhood' %>
-      </td>
-    </tr>
+    <%= collection_select :neighborhood, :neighborhood_id, Neighborhood.all, :id, :name, prompt: "Select a neighborhood" %>
+    <%= submit_tag 'Filter by Neighborhood' %>
     <% end %>
-    <%= form_tag '', :method => :get do %>
-    <tr>
-      <td>
-        <%= select_tag "Price", options_for_select(["Free", "$1 - $5", "$5 - $10", "$10 - $15", "$15 - $20", "$20+"]), prompt: "Select a price range" %>
-      </td>
-      <td>
-        <%= submit_tag 'Filter by Price Range' %>
-      </td>
-    </tr>
-    <% end %>
-    <%= form_tag '', :method => :get do %>
-    <tr>
-      <td>
-        <%= select_tag "Category", options_for_select(@categories), prompt: "Select a category" %>
-      </td>
-      <td>
-        <%= submit_tag 'Filter by Category' %>
-      </td>
-    </tr>
-    <% end %>
-    <%= form_tag '', :method => :get do %>
-    <tr>
-      <td>
-        <%= select_tag "Subcategory", options_for_select(@subcategories), prompt: "Select a subcategory" %>
-      </td>
-      <td>
-        <%= submit_tag 'Filter by Subcategory' %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
     <br>
+    <%= form_tag '', :method => :get do %>
+    <%= select_tag "Price", options_for_select(["Free", "$1 - $5", "$5 - $10", "$10 - $15", "$15 - $20", "$20+"]), prompt: "Select a price range" %>
+    <%= submit_tag 'Filter by Price Range' %>
+    <% end %>
+    <br>
+    <%= form_tag '', :method => :get do %>
+    <%= select_tag "Category", options_for_select(@categories), prompt: "Select a category" %>
+    <%= submit_tag 'Filter by Category' %>
+    <% end %>
+    <br>
+    <%= form_tag '', :method => :get do %>
+    <%= select_tag "Subcategory", options_for_select(@subcategories), prompt: "Select a subcategory" %>
+    <%= submit_tag 'Filter by Subcategory' %>
+    <% end %>
+    <br>
+  </section>
   <%= form_tag '', :method => :get do %>
-  <table class="filter_table">
+  <table class="filter">
     <tr>
       <td>
         <strong>Monday:</strong>
