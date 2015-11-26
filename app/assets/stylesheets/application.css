@@ -33,6 +33,15 @@ div {
   text-align: center;
 }
 
+nav {
+  background-color: #fff;
+  background-color: rgba(253,253,253,0.8);
+  width: 22%;
+  text-align: center;
+  padding: 5px;
+  margin: 3%
+}
+
 table {
   margin: auto;
   width: 60%;
