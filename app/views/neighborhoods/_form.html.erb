@@ -1,15 +1,14 @@
-<%= form_for @neighborhood do |f| %>
-  <fieldset>
-    <legend>Neighborhood Details</legend>
+<div class="neighborhood_form">
+  <%= form_for @neighborhood do |f| %>
     <%= f.label :name, 'Name: ' %>
     <%= f.text_field :name, :required => true %>
     <br>
     <br>
     <%= f.label :description, 'Description: ' %>
     <br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, size: "30x10" %>
     <br>
     <br>
     <%= f.submit %>
-  </fieldset>
-<% end %>
+  <% end %>
+</div>
