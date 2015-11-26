@@ -1,84 +1,88 @@
-<h1><%= @activity.name %></h1>
-<table>
-  <tr>
-    <td>
-      <strong>Neighborhood: </strong>
-    </td>
-    <td>
-      <%= link_to @activity.neighborhood.name, neighborhood_path(@activity.neighborhood_id) %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong>Category: </strong>
-    </td>
-    <td>
-      <%= @activity.category %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong>Subcategory: </strong>
-    </td>
-    <td>
-      <%= @activity.subcategory %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong>Description: </strong>
-    </td>
-    <td>
-      <%= @activity.description %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong>Website: </strong>
-    </td>
-    <td>
-      <% if @activity.website != '' %>
-        <%= link_to 'Click Here', @activity.website, :target => '_blank' %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong>When: </strong>
-    </td>
-    <td>
-      <% times_when(@activity).each do |time| %>
-        <%= time %>
-        <br>
-      <% end %>
-    </td>
+<div class="activity_show">
+  <h1><%= @activity.name %></h1>
+</div>
+<div class="activity_show">
+  <table id="activity_show_table">
     <tr>
       <td>
-        <strong>Price Range: </strong>
+        <strong>Neighborhood: </strong>
       </td>
       <td>
-        <%= @activity.price_range %>
+        <%= link_to @activity.neighborhood.name, neighborhood_path(@activity.neighborhood_id) %>
       </td>
     </tr>
     <tr>
       <td>
-        <strong>Transit Time: </strong>
-        <br>
-         (from Ada)
+        <strong>Category: </strong>
       </td>
       <td>
-        <%= @activity.minutes_from_ada %> minutes by <%= @activity.method %>
+        <%= @activity.category %>
       </td>
     </tr>
     <tr>
       <td>
-        <strong>Address: </strong>
+        <strong>Subcategory: </strong>
       </td>
       <td>
-        <%= @activity.address %>
-        <br>
-        <%= @activity.city %>, <%= @activity.state %> <%= @activity.zip %>
+        <%= @activity.subcategory %>
       </td>
     </tr>
-  </tr>
-</table>
+    <tr>
+      <td>
+        <strong>Description: </strong>
+      </td>
+      <td>
+        <%= @activity.description %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Website: </strong>
+      </td>
+      <td>
+        <% if @activity.website != '' %>
+          <%= link_to 'Click Here', @activity.website, :target => '_blank' %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>When: </strong>
+      </td>
+      <td>
+        <% times_when(@activity).each do |time| %>
+          <%= time %>
+          <br>
+        <% end %>
+      </td>
+      <tr>
+        <td>
+          <strong>Price Range: </strong>
+        </td>
+        <td>
+          <%= @activity.price_range %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Transit Time: </strong>
+          <br>
+           (from Ada)
+        </td>
+        <td>
+          <%= @activity.minutes_from_ada %> minutes by <%= @activity.method %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Address: </strong>
+        </td>
+        <td>
+          <%= @activity.address %>
+          <br>
+          <%= @activity.city %>, <%= @activity.state %> <%= @activity.zip %>
+        </td>
+      </tr>
+    </tr>
+  </table>
+</div>

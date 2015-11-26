@@ -27,14 +27,14 @@
 nav {
   background-color: #fff;
   background-color: rgba(253,253,253,0.8);
-  width: 30%;
+  width: 40%;
   text-align: center;
   padding: 5px;
   margin: 3% 3% 3% 10%;
 }
 
 .nav_link {
-  padding: 4%;
+  padding: 6%;
 }
 
 div {
@@ -45,4 +45,20 @@ div {
 
 p {
   padding: 3%;
+}
+
+a:link {
+    color: rgb(81,82,75);
+}
+
+a:visited {
+    color: rgb(81,82,75);
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: rgb(81,82,75);
 }
