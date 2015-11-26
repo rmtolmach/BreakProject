@@ -69,6 +69,8 @@ class ActivitiesController < ApplicationController
       @activities = Activity.where(saturday_morning: true) if time == "saturday_morning"
       @activities = Activity.where(saturday_afternoon: true) if time == "saturday_afternoon"
       @activities = Activity.where(saturday_evening: true) if time == "saturday_evening"
+    else
+      @activities = Activity.all
     end
   end
 

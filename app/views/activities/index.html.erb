@@ -1,131 +1,164 @@
-<h1>Activities</h1>
-<section>
+<div class="activity_index">
+  <h1>Activities</h1>
+</div>
+<div class="activity_index">
   <h3>Filters</h3>
+  <table class="filter_table">
+    <%= form_tag '', :method => :get do %>
+    <tr>
+      <td>
+        <%= collection_select :neighborhood, :neighborhood_id, Neighborhood.all, :id, :name, prompt: "Select a neighborhood" %>
+      </td>
+      <td>
+        <%= submit_tag 'Filter by Neighborhood' %>
+      </td>
+    </tr>
+    <% end %>
+    <%= form_tag '', :method => :get do %>
+    <tr>
+      <td>
+        <%= select_tag "Price", options_for_select(["Free", "$1 - $5", "$5 - $10", "$10 - $15", "$15 - $20", "$20+"]), prompt: "Select a price range" %>
+      </td>
+      <td>
+        <%= submit_tag 'Filter by Price Range' %>
+      </td>
+    </tr>
+    <% end %>
+    <%= form_tag '', :method => :get do %>
+    <tr>
+      <td>
+        <%= select_tag "Category", options_for_select(@categories), prompt: "Select a category" %>
+      </td>
+      <td>
+        <%= submit_tag 'Filter by Category' %>
+      </td>
+    </tr>
+    <% end %>
+    <%= form_tag '', :method => :get do %>
+    <tr>
+      <td>
+        <%= select_tag "Subcategory", options_for_select(@subcategories), prompt: "Select a subcategory" %>
+      </td>
+      <td>
+        <%= submit_tag 'Filter by Subcategory' %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+    <br>
   <%= form_tag '', :method => :get do %>
-    <%= select_tag "Category", options_for_select(@categories), prompt: "Select a category" %>
-    <%= submit_tag 'Filter by Category' %>
-    <% end %>
-    <%= form_tag '', :method => :get do %>
-    <%= select_tag "Subcategory", options_for_select(@subcategories), prompt: "Select a subcategory" %>
-    <%= submit_tag 'Filter by Subcategory' %>
-    <% end %>
-    <%= form_tag '', :method => :get do %>
-    <%= collection_select :neighborhood, :neighborhood_id, Neighborhood.all, :id, :name, prompt: "Select a neighborhood" %>
-    <%= submit_tag 'Filter by Neighborhood' %>
-    <% end %>
-    <%= form_tag '', :method => :get do %>
-    <%= select_tag "Price", options_for_select(["Free", "$1 - $5", "$5 - $10", "$10 - $15", "$15 - $20", "$20+"]), prompt: "Select a price range" %>
-    <%= submit_tag 'Filter by Price Range' %>
-    <% end %>
-    <%= form_tag '', :method => :get do %>
-    <table>
-      <tr>
-        <td>
-          <strong>Monday:</strong>
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :monday_morning %>Mornings
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :monday_afternoon %>Afternoons
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :monday_evening %>Evenings
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Tuesday:</strong>
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :tuesday_morning %>Mornings
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :tuesday_afternoon %>Afternoons
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :tuesday_evening %>Evenings
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Wednesday:</strong>
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :wednesday_morning %>Mornings
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :wednesday_afternoon %>Afternoons
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :wednesday_evening %>Evenings
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Thursday:</strong>
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :thursday_morning %>Mornings
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :thursday_afternoon %>Afternoons
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :thursday_evening %>Evenings
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Friday:</strong>
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :friday_morning %>Mornings
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :friday_afternoon %>Afternoons
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :friday_evening %>Evenings
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Saturday:</strong>
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :saturday_morning %>Mornings
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :saturday_afternoon %>Afternoons
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :saturday_evening %>Evenings
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Sunday:</strong>
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :sunday_morning %>Mornings
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :sunday_afternoon %>Afternoons
-        </td>
-        <td>
-          <%= radio_button_tag "Time", :sunday_evening %>Evenings
-        </td>
-      </tr>
-    </table>
-    <%= submit_tag 'Filter by Time' %>
-    <% end %>
-    <% if @filtered_by != nil %>
-    <h4>Filtered by <%= @filtered_by %> <%= link_to 'Reset Filter', activities_path %></h4>
-    <% end %>
-</section>
-<section>
+  <table class="filter_table">
+    <tr>
+      <td>
+        <strong>Monday:</strong>
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :monday_morning %>Mornings
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :monday_afternoon %>Afternoons
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :monday_evening %>Evenings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Tuesday:</strong>
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :tuesday_morning %>Mornings
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :tuesday_afternoon %>Afternoons
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :tuesday_evening %>Evenings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Wednesday:</strong>
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :wednesday_morning %>Mornings
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :wednesday_afternoon %>Afternoons
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :wednesday_evening %>Evenings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Thursday:</strong>
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :thursday_morning %>Mornings
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :thursday_afternoon %>Afternoons
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :thursday_evening %>Evenings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Friday:</strong>
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :friday_morning %>Mornings
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :friday_afternoon %>Afternoons
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :friday_evening %>Evenings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Saturday:</strong>
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :saturday_morning %>Mornings
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :saturday_afternoon %>Afternoons
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :saturday_evening %>Evenings
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Sunday:</strong>
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :sunday_morning %>Mornings
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :sunday_afternoon %>Afternoons
+      </td>
+      <td>
+        <%= radio_button_tag "Time", :sunday_evening %>Evenings
+      </td>
+    </tr>
+    <tr>
+      <td id="time_filter_submit">
+        <%= submit_tag 'Filter by Time' %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+</div>
+<div class="activity_index">
   <h3>List of Activities</h3>
+  <% if @filtered_by != nil %>
+    <p>Filtered by <%= @filtered_by %> <%= link_to 'Reset Filter', activities_path %></p>
+  <% end %>
   <ul>
     <% @activities.each do |a| %>
       <li>
@@ -133,4 +166,4 @@
       </li>
     <% end %>
   </ul>
-</section>
+</div>

@@ -1,3 +1,25 @@
 // Place all the styles related to the activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.activity_index {
+  width: 50%;
+}
+
+.filter_table {
+  padding: 0 5%;
+}
+
+#time_filter_submit {
+  padding-top: 2%;
+  padding-bottom: 6%;
+}
+
+ul {
+  padding-bottom: 5%;
+  margin-left: 2%;
+}
+
+li {
+  padding-bottom: 1%;
+}
