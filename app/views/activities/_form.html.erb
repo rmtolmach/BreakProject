@@ -19,61 +19,127 @@
     <br>
     When:
     <br>
-    <strong>Monday:</strong>
-    <%= f.check_box :monday_morning %>
-    <%= f.label :monday_morning, "Mornings " %>
-    <%= f.check_box :monday_afternoon %>
-    <%= f.label :monday_afternoon, "Afternoons " %>
-    <%= f.check_box :monday_evening %>
-    <%= f.label :monday_evening, "Evenings " %>
-    <br>
-    <strong>Tuesday:</strong>
-    <%= f.check_box :tuesday_morning %>
-    <%= f.label :tuesday_morning, "Mornings " %>
-    <%= f.check_box :tuesday_afternoon %>
-    <%= f.label :tuesday_afternoon, "Afternoons " %>
-    <%= f.check_box :tuesday_evening %>
-    <%= f.label :tuesday_evening, "Evenings " %>
-    <br>
-    <strong>Wednesday:</strong>
-    <%= f.check_box :wednesday_morning %>
-    <%= f.label :wednesday_morning, "Mornings " %>
-    <%= f.check_box :wednesday_afternoon %>
-    <%= f.label :wednesday_afternoon, "Afternoons " %>
-    <%= f.check_box :wednesday_evening %>
-    <%= f.label :wednesday_evening, "Evenings " %>
-    <br>
-    <strong>Thursday:</strong>
-    <%= f.check_box :thursday_morning %>
-    <%= f.label :thursday_morning, "Mornings " %>
-    <%= f.check_box :thursday_afternoon %>
-    <%= f.label :thursday_afternoon, "Afternoons " %>
-    <%= f.check_box :thursday_evening %>
-    <%= f.label :thursday_evening, "Evenings " %>
-    <br>
-    <strong>Friday:</strong>
-    <%= f.check_box :friday_morning %>
-    <%= f.label :friday_morning, "Mornings " %>
-    <%= f.check_box :friday_afternoon %>
-    <%= f.label :friday_afternoon, "Afternoons " %>
-    <%= f.check_box :friday_evening %>
-    <%= f.label :friday_evening, "Evenings " %>
-    <br>
-    <strong>Saturday:</strong>
-    <%= f.check_box :saturday_morning %>
-    <%= f.label :saturday_morning, "Mornings " %>
-    <%= f.check_box :saturday_afternoon %>
-    <%= f.label :saturday_afternoon, "Afternoons " %>
-    <%= f.check_box :saturday_evening %>
-    <%= f.label :saturday_evening, "Evenings " %>
-    <br>
-    <strong>Sunday:</strong>
-    <%= f.check_box :sunday_morning %>
-    <%= f.label :sunday_morning, "Mornings " %>
-    <%= f.check_box :sunday_afternoon %>
-    <%= f.label :sunday_afternoon, "Afternoons " %>
-    <%= f.check_box :sunday_evening %>
-    <%= f.label :sunday_evening, "Evenings " %>
+    <table id="when_table">
+      <tr>
+        <td>
+          <strong>Monday:</strong>
+        </td>
+        <td>
+          <%= f.check_box :monday_morning %>
+          <%= f.label :monday_morning, "Mornings " %>
+        </td>
+        <td>
+          <%= f.check_box :monday_afternoon %>
+          <%= f.label :monday_afternoon, "Afternoons " %>
+        </td>
+        <td>
+          <%= f.check_box :monday_evening %>
+          <%= f.label :monday_evening, "Evenings " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Tuesday:</strong>
+        </td>
+        <td>
+          <%= f.check_box :tuesday_morning %>
+          <%= f.label :tuesday_morning, "Mornings " %>
+        </td>
+        <td>
+          <%= f.check_box :tuesday_afternoon %>
+          <%= f.label :tuesday_afternoon, "Afternoons " %>
+        </td>
+        <td>
+          <%= f.check_box :tuesday_evening %>
+          <%= f.label :tuesday_evening, "Evenings " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Wednesday:</strong>
+        </td>
+        <td>
+          <%= f.check_box :wednesday_morning %>
+          <%= f.label :wednesday_morning, "Mornings " %>
+        </td>
+        <td>
+          <%= f.check_box :wednesday_afternoon %>
+          <%= f.label :wednesday_afternoon, "Afternoons " %>
+        </td>
+        <td>
+          <%= f.check_box :wednesday_evening %>
+          <%= f.label :wednesday_evening, "Evenings " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Thursday:</strong>
+        </td>
+        <td>
+          <%= f.check_box :thursday_morning %>
+          <%= f.label :thursday_morning, "Mornings " %>
+        </td>
+        <td>
+          <%= f.check_box :thursday_afternoon %>
+          <%= f.label :thursday_afternoon, "Afternoons " %>
+        </td>
+        <td>
+          <%= f.check_box :thursday_evening %>
+          <%= f.label :thursday_evening, "Evenings " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Friday:</strong>
+        </td>
+        <td>
+          <%= f.check_box :friday_morning %>
+          <%= f.label :friday_morning, "Mornings " %>
+        </td>
+        <td>
+          <%= f.check_box :friday_afternoon %>
+          <%= f.label :friday_afternoon, "Afternoons " %>
+        </td>
+        <td>
+          <%= f.check_box :friday_evening %>
+          <%= f.label :friday_evening, "Evenings " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Saturday:</strong>
+        </td>
+        <td>
+          <%= f.check_box :saturday_morning %>
+          <%= f.label :saturday_morning, "Mornings " %>
+        </td>
+        <td>
+          <%= f.check_box :saturday_afternoon %>
+          <%= f.label :saturday_afternoon, "Afternoons " %>
+        </td>
+        <td>
+          <%= f.check_box :saturday_evening %>
+          <%= f.label :saturday_evening, "Evenings " %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Sunday:</strong>
+        </td>
+        <td>
+          <%= f.check_box :sunday_morning %>
+          <%= f.label :sunday_morning, "Mornings " %>
+        </td>
+        <td>
+          <%= f.check_box :sunday_afternoon %>
+          <%= f.label :sunday_afternoon, "Afternoons " %>
+        </td>
+        <td>
+          <%= f.check_box :sunday_evening %>
+          <%= f.label :sunday_evening, "Evenings " %>
+        </td>
+      </tr>
+    </table>
     <br>
     <br>
     <%= f.label :website, 'Website: ' %>
@@ -91,17 +157,40 @@
     <%= f.select :method, @method, prompt: "Select a transit method" %>
     <br>
     <br>
-    <%= f.label :address, 'Address: ' %>
-    <%= f.text_field :address %>
-    <br>
-    <%= f.label :city, 'City: ' %>
-    <%= f.text_field :city, :value => "Seattle" %>
-    <%= f.label :state, 'State: ' %>
-    <%= f.select :state, us_states, :selected => 'WA' %>
-    <br>
-    <%= f.label :zip, 'Zip Code: ' %>
-    <%= f.text_field :zip %>
-    <br>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :address, 'Address: ' %>
+        </td>
+        <td>
+          <%= f.text_field :address %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :city, 'City: ' %>
+        </td>
+        <td>
+          <%= f.text_field :city, :value => "Seattle" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :state, 'State: ' %>
+        </td>
+        <td>
+          <%= f.select :state, us_states, :selected => 'WA' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :zip, 'Zip Code: ' %>
+        </td>
+        <td>
+          <%= f.text_field :zip %>
+        </td>
+      </tr>
+    </table>
     <br>
     <%= f.submit %>
   <% end %>
