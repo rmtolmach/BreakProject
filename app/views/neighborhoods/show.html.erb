@@ -1,25 +1,31 @@
-<h1><%= @neighborhood.name %></h1>
-<h3>Description:</h3>
-<%= @neighborhood.description %>
-<br>
-
-<h3>Activities:</h3>
-<p>
-  Contribute to the list! <%= link_to "Add an activity", new_neighborhood_activity_path(@neighborhood) %>
-</p>
-<table>
-  <% @activities.each do |a| %>
-    <tr>
-      <td>
-        <%= link_to a.name, neighborhood_activity_path(@neighborhood, a) %>
-      </td>
-      <td>
-        <%= button_to 'Edit', edit_neighborhood_activity_path(@neighborhood, a), method: :get %>
-      </td>
-      <td>
-        <%= button_to 'Delete',
-        "/neighborhoods/#{@neighborhood.id}/activities/#{a.id}", method: "delete", data: { confirm: "Are you sure you want to delete this activity?" } %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="neighborhood_show">
+  <h1><%= @neighborhood.name %></h1>
+</div>
+<div class="neighborhood_show">
+  <h3>Description:</h3>
+  <p><%= @neighborhood.description %></p>
+</div>
+<div class="neighborhood_show">
+  <h3>Activities:</h3>
+  <table id="activity_table">
+    <% @activities.each do |a| %>
+      <tr>
+        <td>
+          <%= link_to a.name, neighborhood_activity_path(@neighborhood, a) %>
+        </td>
+        <td>
+          <%= button_to 'Edit', edit_neighborhood_activity_path(@neighborhood, a), method: :get %>
+        </td>
+        <td>
+          <%= button_to 'Delete',
+          "/neighborhoods/#{@neighborhood.id}/activities/#{a.id}", method: "delete", data: { confirm: "Are you sure you want to delete this activity?" } %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+</div>
+<div class="neighborhood_show">
+  <p id="add_activity">
+    Contribute to the list! <%= link_to "Add an activity", new_neighborhood_activity_path(@neighborhood) %>
+  </p>
+</div>

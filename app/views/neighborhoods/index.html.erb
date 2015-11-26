@@ -1,8 +1,8 @@
-<div>
+<div class="neighborhood_index">
   <h1>Welcome to Seattle!</h1>
 </div>
-<div>
-  <table>
+<div class="neighborhood_index">
+  <table id="neighborhood_table">
     <% @neighborhoods.each do |n| %>
     <tr>
       <td class="neighborhood_link_cell">
@@ -18,7 +18,7 @@
     <% end %>
   </table>
 </div>
-<div>
+<div class="neighborhood_index">
   <p>
     Can't find the neighborhood you're looking for? <%= link_to 'Add a new neighborhood', new_neighborhood_path %>
   </p>

@@ -5,8 +5,11 @@
 div {
   background-color: #fff;
   background-color: rgba(253,253,253,0.8);
-  width: 75%;
   margin: auto;
+}
+
+.neighborhood_index {
+  width: 75%;
   text-align: center;
 }
 
@@ -14,18 +17,31 @@ div {
   width: 50%;
 }
 
-
 .edit_neighborhood {
   text-align: left;
   padding: 5%;
   width: 80%;
 }
 
-
 .new_neighborhood {
   text-align: left;
   padding: 5%;
   width: 80%;
+}
+
+.neighborhood_show {
+  width: 60%;
+}
+
+#neighborhood_table {
+  margin: auto;
+  width: 60%;
+  padding: 3%;
+}
+
+#activity_table {
+  padding: 3%;
+  width: 70%;
 }
 
 .neighborhood_link_cell {
@@ -43,7 +59,15 @@ div {
   text-align: center;
 }
 
-
 h1 {
   padding: 3%;
+  text-align: center;
+}
+
+h3 {
+  padding: 3% 3% 0% 3%;
+}
+
+#add_activity {
+  text-align: center;
 }
