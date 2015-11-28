@@ -2,6 +2,19 @@
   <h1>Activities</h1>
 </div>
 <div class="activity_index">
+  <h3>List of Activities</h3>
+  <% if @filtered_by != nil %>
+    <p>Filtered by <%= @filtered_by %> <%= link_to 'Reset Filter', activities_path %></p>
+  <% end %>
+  <ul>
+    <% @activities.each do |a| %>
+      <li>
+        <%= link_to a.name, neighborhood_activity_path(a.neighborhood_id, a.id) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="activity_index">
   <h3>Filters</h3>
   <section class="filter">
     <%= form_tag '', :method => :get do %>
@@ -132,17 +145,4 @@
     </tr>
   </table>
   <% end %>
-</div>
-<div class="activity_index">
-  <h3>List of Activities</h3>
-  <% if @filtered_by != nil %>
-    <p>Filtered by <%= @filtered_by %> <%= link_to 'Reset Filter', activities_path %></p>
-  <% end %>
-  <ul>
-    <% @activities.each do |a| %>
-      <li>
-        <%= link_to a.name, neighborhood_activity_path(a.neighborhood_id, a.id) %>
-      </li>
-    <% end %>
-  </ul>
 </div>
