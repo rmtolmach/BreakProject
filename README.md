@@ -1,7 +1,7 @@
 #Seattle on the Cheap
 
 ##Purpose
-This app makes it easy to learn about affordable activities in Seattle.  
+This app makes it easy for people to learn about affordable activities in Seattle.  
 Users can filter activities by neighborhood, price range, timeframe, category, and subcategory.
 Users can also create new activities and neighborhoods.  
 
