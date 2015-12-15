@@ -1,28 +1,10 @@
-== README
+#Seattle on the Cheap
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Purpose
+This app makes it easy to learn about affordable activities in Seattle.  
+Users can filter activities by neighborhood, price range, timeframe, category, and subcategory.
+Users can also create new activities and neighborhoods.  
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+##Structure
+There are two models: Neighborhood and Activity.  All activities belong_to a neighborhood and each
+neighborhood has_many activities.
