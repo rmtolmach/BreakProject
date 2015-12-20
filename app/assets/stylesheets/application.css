@@ -16,7 +16,7 @@
 
 
  html,body {
-     background: image-url('seattle.jpg') no-repeat center center fixed;
+     background: url('seattle.jpg') no-repeat center center fixed;
      -webkit-background-size: cover; /* For WebKit*/
      -moz-background-size: cover;    /* Mozilla*/
      -o-background-size: cover;      /* Opera*/
