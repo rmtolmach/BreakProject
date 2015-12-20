@@ -31,12 +31,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Include Bootstrap
+gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'simplecov', :require => false, :group => :test
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
