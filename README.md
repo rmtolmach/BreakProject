@@ -10,4 +10,5 @@ There are two models: Neighborhood and Activity.  All activities belong_to a nei
 neighborhood has_many activities.
 
 ##Setup
-Run rake db:seed to seed the application with data from my lightning talk. 
+Download the project and run bundle install.  Setup the database by running rake db:migrate and rake db:seed (this will seed the application with data from my lightning talk). View the website locally at localhost:3000.  
+[Heroku Link] (https://cheapseattle.herokuapp.com/)
