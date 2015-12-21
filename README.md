@@ -11,4 +11,4 @@ neighborhood has_many activities.
 
 ##Setup
 Download the project and run bundle install.  Setup the database by running rake db:migrate and rake db:seed (this will seed the application with data from my lightning talk). View the website locally at localhost:3000.  
-[Cheap Seattle] (https://cheapseattle.herokuapp.com/) (Heroku Link)
+[Cheap Seattle] (https://cheapseattle.herokuapp.com/) (Heroku link)
