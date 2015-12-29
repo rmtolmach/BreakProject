@@ -16,14 +16,36 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+//body_classes
+
+.all-hoods {
+  background: url('downtown-seattle.jpg') no-repeat center center fixed;
+}
+
+.one-hood {
+  background: url('colorful-downtown.jpg') no-repeat center center fixed;
+}
+
+.all-acts {
+ background: url('marketplace.jpg') no-repeat center center fixed;
+}
+
+.one-act {
+ background: url('monorail.jpg') no-repeat center center fixed;
+}
+
 
  html,body {
-     background: url('seattle.jpg') no-repeat center center fixed;
      -webkit-background-size: cover; /* For WebKit*/
      -moz-background-size: cover;    /* Mozilla*/
      -o-background-size: cover;      /* Opera*/
      background-size: cover;         /* Generic*/
-     color: rgb(81,82,75);
+    //  color: rgb(81,82,75);
+     font-family:arial,sans-serif;
+     font-size:100%;
+     margin:0 auto;
+     background-size: 100%;
+     min-height: 400px;
  }
 
 nav {
