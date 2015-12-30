@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/spec/controllers/activities_controller_spec.rb": [
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/spec/controllers/activities_controller_spec.rb": [
         1,
         null,
         1,
@@ -9,7 +9,7 @@
         null,
         null
       ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/app/controllers/activities_controller.rb": [
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/app/controllers/activities_controller.rb": [
         1,
         1,
         1,
@@ -107,66 +107,6 @@
         0,
         0,
         null,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null
-      ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/spec/controllers/neighborhoods_controller_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/app/controllers/neighborhoods_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
         0,
         null,
         null,
@@ -182,7 +122,99 @@
         null,
         null
       ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/spec/models/activity_spec.rb": [
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/spec/controllers/neighborhoods_controller_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        3,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/app/controllers/neighborhoods_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/spec/models/activity_spec.rb": [
         1,
         null,
         1,
@@ -190,12 +222,12 @@
         null,
         null
       ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/app/models/activity.rb": [
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/app/models/activity.rb": [
         1,
         1,
         null
       ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/spec/models/neighborhood_spec.rb": [
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/spec/models/neighborhood_spec.rb": [
         1,
         null,
         1,
@@ -203,12 +235,15 @@
         null,
         null
       ],
-      "/Users/Kellykell/Desktop/Ada_HW/BreakProject/app/models/neighborhood.rb": [
+      "/Users/Becca/Desktop/Ada/Projects/BreakProject/app/models/neighborhood.rb": [
         1,
         1,
+        1,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1450655005
+    "timestamp": 1451502488
   }
 }
